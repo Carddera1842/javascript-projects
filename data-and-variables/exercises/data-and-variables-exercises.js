@@ -4,15 +4,15 @@ let shuttleName = 'Determination';
 let shuttleSpeedMph = 17500;
 let marsDistanceKm = 225000000;
 let moonDistanceKm = 384400;
-const milesPerKm= 0.621;
+const milesPerKm = 0.621;
 
 // Use console.log to print the 'typeof' each variable. Print one item per line.
 
 console.log(typeof (shuttleName));
-console.log(typeof (shuttleSpeed));
-console.log(typeof (marsDistance));
-console.log(typeof (moonDistance));
-console.log(typeof (milesPerKilometer));
+console.log(typeof (shuttleSpeedMph));
+console.log(typeof (marsDistanceKm));
+console.log(typeof (moonDistanceKm));
+console.log(typeof (milesPerKm));
 
 // Calculate a space mission below
 
@@ -30,5 +30,7 @@ console.log(shuttleName + " will take " + daysToMars + " days to reach mars.");
 let milesToMoon = moonDistanceKm * milesPerKm;
 let hoursToMoon = milesToMoon / shuttleSpeedMph;
 let daysToMoon = hoursToMoon / 24;
+
+// Print the results of the trip to the moon below
 
 console.log(shuttleName + " will take " + daysToMoon + " days to reach the Moon");
