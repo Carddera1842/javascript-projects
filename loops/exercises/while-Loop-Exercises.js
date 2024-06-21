@@ -32,7 +32,7 @@ while (startingFuel-100*astronautsAboard >= 0) {
 
 If the altitude is 2000 km or higher, add “Orbit achieved!” Otherwise add, “Failed to reach orbit.”*/
 
-let output = (`The shuttle gained an altitude of ${altitudeShuttle} km.`);
+let output = (`The shuttle gained an altitude of ${altitudeShuttle} km. `);
 
 if (altitudeShuttle >= 2000) {
   output += "Orbit achieved!"
