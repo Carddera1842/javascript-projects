@@ -21,12 +21,41 @@ function holdStatus(arr){
 let fuelLevel = 200000;
 let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
 
+let notSuspicious = function(a) {
+  if (checkFuel(a) === 'green') {
+    return a -100001;
+  } 
+  else if (checkFuel (a) === 'yellow') {
+      return a - 50001
+  }
+  else {
+    return a;
+  }
+};
+
+let stillNotSuspicious = function (b) {
+  if (b.includes("gold") && b.includes("AE-35 unit")) {
+    b.slice(b.indexOf('gold'), 1, 'lead')
+    b.slice(b.indexOf('AE-35 unit', 1, 'butler'))
+
+    return ['gold', 'AE-35 unit']
+  }
+}
+
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
 
+let irs = function(levelOfFuel, itemsInCargo) {
+  let arr = stillNotSuspicious(itemsInCargo);
+  return `Raided ${notSuspicious(fuelLevel)} kg of fuel from the tanks, and stole ${arr[0]} and ${arr[1]} from the cargo hold.`
+}
+
+console.log(irs(fuelLevel, cargoHold))
+
 /* Steal some fuel from the shuttle:
  */
- 
+//console.log(cargoHold)
+//console.log(fuelLevel)
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
 
 //b). You must siphon off fuel without alerting the TAs. Inside your function, you want to reduce the fuel level as much as possible WITHOUT changing the color returned by the checkFuel function.
@@ -36,7 +65,6 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //d). Decide where to best place your function call to gather our new fuel.
 
 /* Next, liberate some of that glorious cargo.
- */
 
 //a). Define another anonymous function with an array as a parameter, and set it equal to another innocent variable.
 
@@ -54,3 +82,4 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //b). Call your anonymous fuel and cargo functions from within irs.
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
+
