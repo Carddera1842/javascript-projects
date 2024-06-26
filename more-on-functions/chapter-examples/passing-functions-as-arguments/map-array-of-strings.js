@@ -2,6 +2,9 @@ let names = ["Chris", "Jim", "Sally", "Blake", "Paul", "John", "Courtney", "Carl
 
 // TODO: Write a mapping function
 // and pass it to .map()
+let letter = function(n) {
+    return 
+}
 let firstInitials = names.map();
 
 console.log(firstInitials);
