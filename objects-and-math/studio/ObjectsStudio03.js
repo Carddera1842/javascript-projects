@@ -50,5 +50,35 @@ let candidateA = {
    'astronautID':890
  };
  
- let crew = [candidateB,candidateD,candidateF];
+let crew = [candidateA, candidateB, candidateC, candidateD, candidateE, candidateF];
+
+function crewMass(astronauts) {
+  let massForCrew = 0;
+  for (i = 0; i < crew.length; i++) {
+    massForCrew = massForCrew + astronauts[i].mass;
+  }
+  return Math.round(massForCrew*10)/10;
+}
  
+console.log(crewMass(crew));
+
+let massOfCrew = crewMass(crew);
+let massOfRocketAndSupplies = 75000;
+fuelToLift1Kg = 9.5;
+
+
+
+function fuelRequired() {
+for (i = 0; i < crew.length; i++) {
+  if (crew[i].species === "dog" || crew[i].species === "cat"){
+    massOfCrew = massOfCrew + 200;
+  } else {
+    massOfCrew = massOfCrew + 100;
+  }
+}
+totalMassForTrip = massOfRocketAndSupplies + massOfCrew;
+fuelNeededToReachLeo = Math.ceil(fuelToLift1Kg * totalMassForTrip);
+return console.log(`The mission has a launch mass of ${totalMassForTrip} kg and requires ${fuelNeededToReachLeo} kg of fuel.`)
+}
+
+fuelRequired();
