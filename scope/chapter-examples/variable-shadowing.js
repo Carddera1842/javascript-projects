@@ -1,4 +1,4 @@
-const input = require('readline-sync');
+/*const input = require('readline-sync');
 
 function hello(name) {
     console.log('Hello,', name);
@@ -16,3 +16,10 @@ let name = input.question("Please enter your name: ");
 hello(name);
 doubleName(name);
 console.log(name);
+*/
+
+throw Error("You cannot divide by zero!");
+
+expect( function() {
+    checkThrow(); 
+}).toThrow(new Error('You cannot divide by zero!'));
