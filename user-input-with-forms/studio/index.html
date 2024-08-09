@@ -37,7 +37,7 @@
 		// TODO: create a handler
     	window.addEventListener("load", function(){
 		let form = document.getElementById("searchForm");
-        searchForm.addEventListener("submit", setSearchEngine);
+        form.addEventListener("submit", setSearchEngine);
     });
 	</script>
 </head>
@@ -51,25 +51,28 @@
 	<form id="searchForm" method="GET">
     <!-- TODO: add form elements -->
 	 	<div>
-			<label><input type="text" name="q">
+			<label>What Do You Want To Search?</label>
 	 	</div>
 		<div>
-			<label>Google <input type="radio" name="engine" value="google"></label>
+			<input type="text" name="q">
 		</div>
 		<div>
-			<label>DuckDuckGo <input type="radio" name="engine" value="duckDuckGo"></label>
+			<label> <input type="radio" name="engine" value="google">Google</label>
 		</div>
 		<div>
-			<label>Bing <input type="radio" name="engine" value="bing"></label>
+			<label> <input type="radio" name="engine" value="duckDuckGo">DuckDuckGo</label>
 		</div>
 		<div>
-			<label>Ask <input type="radio" name="engine" value="ask"></label>
+			<label> <input type="radio" name="engine" value="bing">Bing</label>
 		</div>
 		<div>
-			<button id="goButton">Go!</button>
+			<label><input type="radio" name="engine" value="ask">Ask </label>
+		</div>
+		<div>
+			<button id="goButton" value="Go!">Go!</button>
 		</div>
 		<div id="error-message" class="error"></div>
-	</label>
+	
 
 	</form>
 
