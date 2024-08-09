@@ -3,17 +3,74 @@
 <head>
 	<meta charset="utf-8">
 	<script>
+		function setSearchEngine() {
+			event.preventDefault();
+
+			let actions = {
+    			"google": "https://www.google.com/",
+				"duckDuckGo": "https://duckduckgo.com/",
+				"bing": "https://www.bing.com/search",
+				"ask": "https://www.ask.com/web"
+			};
+
+			let engineName = document.querySelector("input[name=engine]:checked");
+			let searchTerm = document.querySelector('input[name="q"]').value.trim();
+        	let searchForm = document.getElementById("searchForm");
+        	let errorMessage = document.getElementById("error-message");
+			
+			if (!engineName) {
+          		errorMessage.textContent = "Please select a search engine.";
+          		return;
+        	}
+
+        	if (searchTerm === "") {
+          		errorMessage.textContent = "Please enter a search term.";
+          	return;
+        	}
+
+        	errorMessage.textContent = "";
+
+			let actionURL = actions[engineName.value];
+			searchForm.setAttribute("action", actionURL);
+        	searchForm.submit();
+		}
 		// TODO: create a handler
-    window.addEventListener("load", function(){
-        // TODO: register the handler
+    	window.addEventListener("load", function(){
+		let form = document.getElementById("searchForm");
+        searchForm.addEventListener("submit", setSearchEngine);
     });
 	</script>
 </head>
+<style>
+
+</style>
 
 <body>
+	<div id="grad1"></div>
 
-	<form id="searchForm">
+	<form id="searchForm" method="GET">
     <!-- TODO: add form elements -->
+	 	<div>
+			<label><input type="text" name="q">
+	 	</div>
+		<div>
+			<label>Google <input type="radio" name="engine" value="google"></label>
+		</div>
+		<div>
+			<label>DuckDuckGo <input type="radio" name="engine" value="duckDuckGo"></label>
+		</div>
+		<div>
+			<label>Bing <input type="radio" name="engine" value="bing"></label>
+		</div>
+		<div>
+			<label>Ask <input type="radio" name="engine" value="ask"></label>
+		</div>
+		<div>
+			<button id="goButton">Go!</button>
+		</div>
+		<div id="error-message" class="error"></div>
+	</label>
+
 	</form>
 
 </body>
